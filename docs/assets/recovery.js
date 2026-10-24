@@ -27,3 +27,29 @@ const hash=Array.from(new Uint8Array(h),x=>x.toString(16).padStart(2,"0")).join(
 out.textContent="SHA-256: "+hash+(hash===expectedZip?" · ✓ ZIP de boot original corresponde ao pacote validado.":" · Sem correspondência com o pacote reduzido esperado. Pode ser um outro backup; compare com o manifesto correto.");
 }catch(e){out.textContent="Falha ao calcular SHA-256. Use ferramenta offline no PC.";}
 });
+
+(async function discoverRecoveryRelease() {
+ const status=document.getElementById("release-status");
+ const statusField=document.getElementById("hosting-status");
+ const filename="HY310X_H713_BOOT_Recovery_20251013.zip";
+ const url="https://api.github.com/repos/maizon/Magcubic-HY310X-and-H713-H723-Root-/releases?per_page=20";
+ try {
+   const response=await fetch(url,{headers:{"Accept":"application/vnd.github+json"}});
+   if(!response.ok)throw new Error("GitHub API "+response.status);
+   const releases=await response.json();
+   const assets=releases.filter(r=>!r.draft&&!r.prerelease).flatMap(r=>r.assets||[]);
+   const asset=assets.find(a=>a.name===filename&&a.size===47074287);
+   if(!asset){
+     status.textContent="Ainda sem binário público em Releases. Use a referência SHA-256 e o ZIP privado do proprietário; não publique partições sensíveis.";
+     return;
+   }
+   const a=document.createElement("a");
+   a.className="primary small";a.textContent="Baixar ZIP de boot via GitHub Releases ↓";
+   a.href=asset.browser_download_url;a.rel="noopener noreferrer";
+   status.replaceChildren(document.createTextNode("Arquivo disponível no Release público (confira SHA-256 após baixar). "),a);
+   statusField.textContent="Pacote reduzido disponibilizado em Releases";
+   statusField.classList.remove("yellow");
+ } catch(e){
+   status.textContent="Não foi possível consultar Releases agora. O manifesto SHA-256 permanece disponível nesta página.";
+ }
+})();
