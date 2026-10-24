@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Leia primeiro a política de segurança
+    url: https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/SECURITY.md
+    about: Não publique firmware privado ou dados protegidos.

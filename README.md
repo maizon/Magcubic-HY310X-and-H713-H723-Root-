@@ -10,7 +10,7 @@
 ![recovery](https://img.shields.io/badge/recupera%C3%A7%C3%A3o%20externa-n%C3%A3o%20validada-f59e0b)
 ![H723](https://img.shields.io/badge/H723-n%C3%A3o%20testado-64748b)
 
-**[🖥️ Dashboard de pesquisa](docs/index.html) · [📘 Caso real HY310X](docs/HY310X-LAB-NOTES.md) · [🛡️ Recuperação](docs/RECOVERY.md) · [🧪 Ferramentas](tools/README.md)**
+**[🔥 Guia de root H713](docs/ROOT-GUIDE.md) · [🖥️ Dashboard de pesquisa](docs/index.html) · [📘 Caso real HY310X](docs/HY310X-LAB-NOTES.md) · [🛡️ Recuperação](docs/RECOVERY.md) · [🧪 Ferramentas](tools/README.md)**
 
 </div>
 

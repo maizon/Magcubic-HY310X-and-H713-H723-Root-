@@ -1,0 +1,52 @@
+name: Relatório de hardware / root / recuperação
+description: Envie resultados medidos, SEM backups nem identificadores sensíveis.
+title: "[Device] Modelo - chip - versão"
+labels: ["research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Não envie números de série, MAC, SSID, chaves, APKs desconhecidos,
+        partições privadas ou ROMs proprietárias. Não marque root como
+        funcionando sem evidências pós-reboot.
+  - type: input
+    id: model
+    attributes:
+      label: Nome comercial informado
+      placeholder: HY310X / HY300 / outro
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: SoC e identificador da placa confirmados
+      placeholder: Ex. H713 / sun50iw12p1 / tv303
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware, Android e kernel
+      placeholder: Sem número de série ou identificadores únicos
+  - type: dropdown
+    id: status
+    attributes:
+      label: Nível de evidência
+      options:
+        - Testado na minha unidade com log
+        - Relatado por terceiro (link)
+        - Hipótese / não testado
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Etapas e resultados anônimos
+      placeholder: Cite slot, checksums públicos de boot se seguro, erros e método de recuperação
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Privacidade
+      options:
+        - label: Retirei serial, MAC, chaves, endereços privados e dumps do relato.
+          required: true
