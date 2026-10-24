@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071422">
+  <meta name="description" content="Maizon Projector Research Lab — plataforma técnica e evidências para HY310X, H713 e pesquisa H723.">
+  <title>Maizon Lab · HY310X / H713 / H723</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip">Pular para conteúdo</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="#top" aria-label="Maizon Lab, início"><span class="brand-icon">M<span>•</span></span><span>MAIZON <small>PROJECTOR LAB</small></span></a>
+      <nav aria-label="Seções"><a href="#overview">Visão geral</a><a href="#evidence">Pesquisa</a><a href="#backup">Backups</a><a href="#tools">Ferramentas</a><a href="#sources">Fontes</a></nav>
+      <button id="theme" class="icon-button" aria-label="Alternar tema" title="Alternar tema">☾</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="glow"></div>
+      <div class="shell hero-body">
+        <div class="eyebrow"><span class="pulse"></span> LABORATÓRIO ABERTO · RELATOS COM RASTREABILIDADE</div>
+        <h1>Pesquisa de <em>firmware</em><br><span>sem achismos.</span></h1>
+        <p class="lede">Da identificação real do SoC ao root, inventário de partições e recuperação. Um centro técnico para o <strong>HY310X</strong> e famílias <strong>Allwinner H713/H723</strong> com fatos separados de hipóteses.</p>
+        <div class="hero-ctas"><a class="primary" href="#evidence">Explorar caso real <span>↗</span></a><a class="secondary" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-">Ver código no GitHub ↗</a></div>
+        <div class="hero-foot"><span>● Caso próprio: 24 out. 2026</span><span>● 21 imagens locais verificadas</span><span>● Nenhum firmware privado publicado</span></div>
+      </div>
+    </section>
+    <section id="overview" class="shell section">
+      <div class="section-head"><div><span class="kicker">01 / PANORAMA</span><h2>O que sabemos, de verdade</h2><p>Distinguimos sucesso relatado, testes objetivos e recursos que ainda precisam de comprovação.</p></div><span class="micro">Relatório v1.0 · H713</span></div>
+      <div class="stats">
+        <article class="stat verified"><span>Unidade HY310X</span><strong>ROOT ✓</strong><small>Magisk 30.7 · sucesso relatado após reiniciar</small></article>
+        <article class="stat"><span>Backup pessoal</span><strong>21<span>/23</span></strong><small>Partições selecionadas com SHA-256 conferido</small></article>
+        <article class="stat"><span>Hardware medido</span><strong>H713</strong><small>sun50iw12p1 · tv303 · Android 11</small></article>
+        <article class="stat alert"><span>Recuperação externa</span><strong>PENDENTE</strong><small>Fastboot / FEL / pendrive não testados neste firmware</small></article>
+      </div>
+      <div class="notice" role="note"><span>⚠</span><div><strong>Não existe firmware de recuperação universal.</strong> Ter backup e SHA válido não prova a possibilidade de restaurar depois de um bootloop. Nunca use private, metadata, env ou bootloader de outro aparelho.</div></div>
+    </section>
+    <section id="evidence" class="shell section">
+      <div class="section-head"><div><span class="kicker">02 / EVIDÊNCIAS</span><h2>Um laboratório. Várias plataformas.</h2><p>O nome comercial não determina o processador. Escolha uma família para ver a evidência disponível.</p></div></div>
+      <div class="tabs" role="tablist" aria-label="Seleção de família">
+        <button class="tab active" data-family="hy310x" aria-selected="true" role="tab">HY310X · caso</button>
+        <button class="tab" data-family="h713" aria-selected="false" role="tab">Outros H713</button>
+        <button class="tab" data-family="h723" aria-selected="false" role="tab">H723 · pesquisa</button>
+      </div>
+      <div class="family" id="family-info" aria-live="polite"></div>
+      <div class="columns">
+        <article class="panel">
+          <div class="panel-title"><h3>Roteiro experimental</h3><span class="tag">ESTUDO DE CASO</span></div>
+          <ol class="timeline">
+            <li><span class="step">01</span><div><strong>Identificação sem confiar no anúncio</strong><p>SoC H713 e placa tv303 confirmados; fingerprint ADT-3 não é prova de hardware Google.</p></div></li>
+            <li><span class="step">02</span><div><strong>Backup por partição + SHA-256</strong><p>21 imagens íntegras. bootloader_a e frp negaram acesso. super e dados excluídos por escolha.</p></div></li>
+            <li><span class="step">03</span><div><strong>Patch Magisk 30.7 no aparelho</strong><p>Boot original de 64 MiB; cópia original e modificada tiveram cabeçalho ANDROID! e hashes diferentes.</p></div></li>
+            <li><span class="step">04</span><div><strong>Permissões do root temporário</strong><p>/system/bin/wifi tinha UID efetivo 0, mas capacidades efetivas zeradas. Corrigida a legibilidade do patch.</p></div></li>
+            <li><span class="step">05</span><div><strong>Gravação confirmada, depois boot</strong><p>64 MiB gravados em boot_a, hash pós-gravação correto, auditoria 8/8. Proprietário relatou root funcional.</p></div></li>
+          </ol>
+          <a class="text-link" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/docs/HY310X-LAB-NOTES.md">Ler caderno técnico completo →</a>
+        </article>
+        <article class="panel">
+          <div class="panel-title"><h3>Ficha técnica</h3><span class="tag blue">MEDIDO</span></div>
+          <dl class="spec"><div><dt>Chip identificado</dt><dd>Allwinner H713</dd></div><div><dt>Plataforma</dt><dd>sun50iw12p1 / tv303</dd></div><div><dt>Sistema</dt><dd>Android 11 · armv7l</dd></div><div><dt>Kernel</dt><dd>5.4.99</dd></div><div><dt>Firmware</dt><dd>Projector.20251013.1058</dd></div><div><dt>Slot em uso</dt><dd>_a / A-B</dd></div><div><dt>AVB reportado</dt><dd>locked</dd></div><div><dt>SELinux</dt><dd>Permissive</dd></div><div><dt>Magisk</dt><dd>30.7</dd></div><div><dt>Status</dt><dd class="green">Sucesso relatado</dd></div></dl>
+          <p class="hint">A interface NÃO garante que uma placa H723 ou outro HY310X compartilhe essas propriedades.</p>
+        </article>
+      </div>
+    </section>
+    <section class="shell section" id="backup">
+      <div class="section-head"><div><span class="kicker">03 / RECUPERAÇÃO</span><h2>Inventário das 21 imagens</h2><p>Este painel publica apenas nomes e tamanhos; as imagens reais e seus dados privados não ficam neste GitHub.</p></div><span class="tag orange">2 AUSÊNCIAS</span></div>
+      <div class="panel">
+        <div class="table-controls"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Buscar boot, vbmeta, metadata..." aria-label="Filtrar imagens"></label><div class="filter-set"><button class="filter active" data-filter="all">Todas</button><button class="filter" data-filter="boot">Boot</button><button class="filter" data-filter="sensitive">Privadas</button></div></div>
+        <div class="table-scroll"><table><thead><tr><th>Imagem</th><th>Tamanho</th><th>Categoria</th><th>Backup</th></tr></thead><tbody id="partition-rows"></tbody></table></div>
+        <div class="table-note" id="table-count"></div>
+        <p class="hint">Não recebidos: <strong>bootloader_a</strong> (Permission denied) e <strong>frp</strong> (Permission denied). Ficam fora deste inventário: super, userdata/UDISK, media_data e disco completo.</p>
+        <a class="text-link" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/docs/RECOVERY.md">Plano de restauração e limites →</a>
+      </div>
+    </section>
+    <section class="shell section" id="tools">
+      <div class="section-head"><div><span class="kicker">04 / FERRAMENTAS</span><h2>Testar antes de arriscar</h2><p>Utilitários locais, auditáveis e somente leitura. Não há botão de flash automático neste painel.</p></div></div>
+      <div class="toolgrid">
+        <article class="panel feature"><span class="feature-icon">⌘</span><h3>Inventário por ADB</h3><p>Diagnóstico do sistema e do slot. Não altera nenhuma partição.</p><pre><code id="cmd-adb">adb shell getprop ro.boot.slot_suffix</code></pre><button class="copy" data-copy="cmd-adb">Copiar comando</button></article>
+        <article class="panel feature"><span class="feature-icon">#</span><h3>Validar ZIP de backup</h3><p>Compara tamanhos e SHA-256 offline usando Python 3.9+.</p><pre><code id="cmd-audit">python3 tools/backup_audit.py backupprojeto.zip --reference reference/h713-hy310x-20251024.json</code></pre><button class="copy" data-copy="cmd-audit">Copiar comando</button></article>
+        <article class="panel feature"><span class="feature-icon">✓</span><h3>Conferir imagem boot</h3><p>Checa cabeçalho ANDROID!, tamanho e integridade. Não comprova compatibilidade.</p><pre><code id="cmd-boot">python3 tools/validate_boot.py --original boot_a.img --patched magisk_patched.img</code></pre><button class="copy" data-copy="cmd-boot">Copiar comando</button></article>
+      </div>
+      <article class="panel hash-panel">
+        <div><span class="kicker">HASH LOCAL · NENHUM UPLOAD</span><h3>Conferir SHA-256 de um arquivo</h3><p>Escolha uma imagem no seu computador. A comparação ocorre no navegador via WebCrypto; o arquivo não é enviado ao servidor. Limite 128 MiB para preservar memória.</p></div>
+        <div class="hash-work"><input id="hash-file" type="file" aria-label="Escolher arquivo IMG"><button id="hash-button" class="primary small" type="button">Calcular SHA-256</button><output id="hash-output" aria-live="polite">Nenhum arquivo processado.</output></div>
+      </article>
+    </section>
+    <section class="shell section" id="sources">
+      <div class="section-head"><div><span class="kicker">05 / COMUNIDADE</span><h2>Pesquisa que respeita autores</h2><p>Atribuição clara a trabalhos externos — cada resultado pertence ao aparelho e firmware que foram testados.</p></div></div>
+      <div class="source-grid">
+        <a href="https://github.com/adrbn/nt30-airplay-guide" target="_blank" rel="noopener noreferrer"><strong>NT30 / adrbn</strong><span>Root via wifi + Magisk H713 ↗</span></a>
+        <a href="https://github.com/well0nez/magcubic-root" target="_blank" rel="noopener noreferrer"><strong>magcubic-root</strong><span>HY310/L018 e firmware IMAGEWTY ↗</span></a>
+        <a href="https://github.com/well0nez/allwinner-h713-linux" target="_blank" rel="noopener noreferrer"><strong>allwinner-h713-linux</strong><span>U-Boot, FEL, Linux aberto ↗</span></a>
+        <a href="https://github.com/YuujiLab/HY300-H713-Research" target="_blank" rel="noopener noreferrer"><strong>YuujiLab</strong><span>HY300 Pro+ · USB Burn ↗</span></a>
+      </div>
+      <div class="cta-bottom"><div><span class="kicker">PESQUISA EM EVOLUÇÃO</span><h3>Seu aparelho é diferente?</h3><p>Compartilhe achados técnicos anônimos. Não publique dumps, dados privados nem imagens com chaves.</p></div><a class="primary" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/issues">Participar no GitHub ↗</a></div>
+    </section>
+  </main>
+  <footer><div class="shell foot"><span><b>MAIZON</b> Projector Research Lab · 2026</span><span>Independente • Sem vínculo com fabricantes • Use por sua conta e risco</span><a href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/SECURITY.md">Política de segurança ↗</a></div></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
