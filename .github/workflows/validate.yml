@@ -1,0 +1,24 @@
+name: Research tools CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate JSON
+        run: python3 -m json.tool reference/h713-hy310x-20251024.json > /dev/null
+      - name: Unit tests (synthetic fixtures, no flash)
+        run: python3 -m unittest discover -s tests -v
+      - name: Compile utility scripts
+        run: python3 -m compileall -q tools tests
