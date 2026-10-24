@@ -1,0 +1,26 @@
+# Firmware, imagens e dumps reais nunca entram no Git público
+*.img
+*.fex
+*.bin
+*.raw
+*.dump
+*.part
+*.bak
+*.qcow2
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.key
+*.pem
+*.p12
+*.keystore
+backups/
+backup/
+private-backup/
+out/
+dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
