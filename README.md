@@ -10,7 +10,7 @@
 ![recovery](https://img.shields.io/badge/recupera%C3%A7%C3%A3o%20externa-n%C3%A3o%20validada-f59e0b)
 ![H723](https://img.shields.io/badge/H723-n%C3%A3o%20testado-64748b)
 
-**[🔥 Guia de root H713](docs/ROOT-GUIDE.md) · [🖥️ Dashboard de pesquisa](docs/index.html) · [📘 Caso real HY310X](docs/HY310X-LAB-NOTES.md) · [🛡️ Recuperação](docs/RECOVERY.md) · [🧪 Ferramentas](tools/README.md)**
+**[🛡️ Central Pages de recuperação](docs/recuperacao.html) · [🔥 Guia de root H713](docs/ROOT-GUIDE.md) · [🖥️ Dashboard de pesquisa](docs/index.html) · [📘 Caso real HY310X](docs/HY310X-LAB-NOTES.md) · [🛡️ Recuperação](docs/RECOVERY.md) · [🧪 Ferramentas](tools/README.md)**
 
 </div>
 
@@ -22,7 +22,7 @@
 |---|---|
 | Descobrir o SoC e a partição correta | [Identificação segura](docs/COMPATIBILITY.md) |
 | Entender o root reproduzido | [Caderno de laboratório HY310X](docs/HY310X-LAB-NOTES.md) |
-| Fazer backups e validar hashes | [Guia de backup e restauração](docs/RECOVERY.md) + [auditoria offline](tools/README.md) |
+| Fazer backups e validar hashes | [Página de recuperação](docs/recuperacao.html) + [auditoria offline](tools/README.md) |
 | Analisar USB, FEL, fastboot e pendrive | [Mapa de métodos USB](docs/USB-BOOT-AND-FEL.md) |
 | Conferir riscos AVB e arquivos privados | [Segurança](SECURITY.md) |
 | Descobrir referências técnicas | [Fontes e créditos](docs/SOURCES.md) |
@@ -66,3 +66,7 @@ O arquivo enviado pelo proprietário continha **21 imagens reais (aprox. 324 MiB
 **Créditos explícitos.** Este repositório documenta um caso próprio e referencia projetos de pesquisa independentes — não os representa oficialmente.
 
 **Projeto comunitário Maizon**, sem vínculo com Allwinner, Magcubic, Google, Magisk ou fabricantes. Procedimentos podem inutilizar o aparelho. Use apenas em dispositivos de sua propriedade.
+
+## GitHub Pages
+
+Após habilitar **Settings → Pages → main /docs**, o site é servido em `https://maizon.github.io/Magcubic-HY310X-and-H713-H723-Root-/`. A central dedicada está em `/recuperacao.html`. O site publica **documentação e manifestos**; o pacote binário reduzido está preparado para o proprietário, mas **não está hospedado publicamente**. Veja [como publicar um Release de maneira responsável](docs/PUBLISH-BACKUPS.md).

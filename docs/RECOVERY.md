@@ -53,3 +53,7 @@ O hash de boot_a após a gravação só comprova **conteúdo gravado**, não ace
 ## 6. Privacidade e redistribuição
 
 private.img, metadata.img, env e misc podem conter informação sensível. Backups de firmware OEM podem incluir material protegido por direitos autorais. Este repositório publica **documentação, ferramentas e inventário sanitizado**, não imagens de aparelhos.
+
+## 7. Página web da recuperação
+
+Consulte [Central de recuperação](recuperacao.html) para comparar imagens, baixar hashes públicos e verificar localmente o SHA-256 do ZIP reduzido. **A página não hospeda partições privadas nem executa flash.** Para colocar o pacote reduzido no GitHub Releases após revisão de direitos/licenças, siga [PUBLISH-BACKUPS.md](PUBLISH-BACKUPS.md).
