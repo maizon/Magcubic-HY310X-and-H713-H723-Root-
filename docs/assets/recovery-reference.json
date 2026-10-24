@@ -1,0 +1,19 @@
+{
+  "title": "HY310X H713 original boot recovery reference",
+  "note": "Manifest only. Device-specific binary images are NOT hosted on this public website.",
+  "commercial_model_reported": "HY310X",
+  "hardware": "sun50iw12p1/tv303 (Allwinner H713)",
+  "firmware": "Projector.20251013.1058",
+  "archive_filename": "HY310X_H713_BOOT_Recovery_20251013.zip",
+  "archive_bytes": 47074287,
+  "archive_sha256": "04a7f6be27b9b80e93f572aaeca2b4ceca538cd63b893f6fd5d27271a9c60362",
+  "image_count": 12,
+  "image_manifest_url": "HY310X-H713-BOOT-SHA256SUMS.txt",
+  "source": "Owner-provided H713 partition backup validated locally",
+  "warnings": [
+    "Not a complete firmware",
+    "Not Allwinner IMAGEWTY update.img",
+    "Not validated as a flashable USB recovery method",
+    "Do not use on H723 or different H713 hardware"
+  ]
+}

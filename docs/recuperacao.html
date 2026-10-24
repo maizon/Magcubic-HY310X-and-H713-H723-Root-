@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071320"><meta name="description" content="Backups originais do HY310X H713, arquivos de referência, verificação SHA-256 e rotas de recuperação documentadas.">
+<title>Recuperação e backups · Maizon H713 Lab</title>
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/recovery.css">
+<script defer src="assets/recovery.js"></script></head>
+<body>
+<header class="bar"><div class="bar-inner"><a class="brand" href="index.html"><span class="brand-icon">M<span>•</span></span><span>MAIZON <small>RECOVERY LAB</small></span></a>
+<nav aria-label="Navegação"><a href="index.html">Dashboard</a><a href="#arquivos">Arquivos</a><a href="#verificacao">Verificar ZIP</a><a href="#brick">Recuperação</a></nav><a class="secondary" href="index.html" style="padding:8px 12px">← Início</a></div></header>
+<main class="shell">
+<section class="recovery-intro"><span class="kicker">CENTRAL DE RECUPERAÇÃO • HY310X / H713</span>
+<h1>Backup certo.<br><em>Risco conhecido.</em></h1>
+<p class="lede">Material de uma unidade H713 identificada como HY310X. Aqui estão as referências públicas, as informações dos backups, os alertas de compatibilidade e os procedimentos de recuperação que ainda dependem de validação.</p>
+<div class="pillrow"><span class="chip good">● 21 partições originais verificadas</span><span class="chip caution">● recuperação externa não comprovada</span><span class="chip">● Android 11 / Kernel 5.4.99</span></div>
+</section>
+<section class="notice" aria-label="aviso de segurança"><span>⚠</span><div><strong>Esta página NÃO é uma ferramenta de desbrick automático.</strong> O pacote de boot não é um firmware completo nem um update.img para pendrive. Não grave imagens de outro projetor, mesmo que a etiqueta também diga HY310X/H713. Bootloader locked e USB/FEL sem restauração comprovada na unidade testada.</div></section>
+<section id="arquivos" class="section section-tight"><div class="section-head"><div><span class="kicker">01 / ARQUIVOS</span><h2>O que existe para recuperar</h2><p>O conjunto original contém 21 imagens privadas. Por segurança, apenas inventários e hashes de imagens de boot foram publicados.</p></div></div>
+<div class="stats">
+  <article class="stat verified"><span>Imagens válidas no arquivo original</span><strong>21</strong><small>324 MiB descompactados</small></article>
+  <article class="stat"><span>Pacote reduzido preparado</span><strong>12</strong><small>Boot · vendor_boot · dtbo · vbmeta</small></article>
+  <article class="stat alert"><span>Ausentes</span><strong>2</strong><small>bootloader_a e frp</small></article>
+  <article class="stat"><span>Firmware completo</span><strong>NÃO</strong><small>Partição super excluída</small></article>
+</div>
+<div class="panel package">
+<h3>Pacote de boot original — H713 da unidade estudada</h3>
+<p>Um arquivo ZIP com imagens originais de boot, vendor_boot, dtbo e vbmeta dos slots A/B foi preparado para o proprietário, validado por SHA-256, e deve ser armazenado fora do projetor. <strong>O ZIP binário ainda não está hospedado neste site.</strong> O GitHub Pages, por si só, não hospeda anexos de conversa; é necessário enviar o ZIP ao repositório/Release separadamente, após avaliar direitos de redistribuição e riscos de privacidade.</p>
+<div class="packet-lines"><div><span>Nome preparado</span><code>HY310X_H713_BOOT_Recovery_20251013.zip</code></div><div><span>Tamanho do pacote</span><code>47.074.287 bytes</code></div><div><span>SHA-256 do ZIP</span><code class="break">04a7f6be27b9b80e93f572aaeca2b4ceca538cd63b893f6fd5d27271a9c60362</code></div><div><span>Disponibilidade online</span><strong class="yellow">Manifesto público · imagens não hospedadas</strong></div></div>
+<div class="buttons"><a class="primary" href="assets/HY310X-H713-BOOT-SHA256SUMS.txt" download>Baixar hashes SHA-256 ↓</a><a class="secondary" href="assets/recovery-reference.json" download>Baixar referência JSON ↓</a><a class="secondary" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/releases">Releases do projeto ↗</a></div>
+</div>
+<div class="panel" style="margin-top:16px"><div class="panel-title"><h3>Imagens de boot selecionadas</h3><span class="tag blue">ORIGINAIS</span></div><div class="table-scroll"><table><thead><tr><th>Partição</th><th>Tamanho</th><th>SHA-256 (prefixo)</th><th>Incluída no pacote reduzido</th></tr></thead><tbody id="recovery-table"></tbody></table></div>
+<p class="hint">As imagens private, metadata, env, misc, Reserve0 e bootloader_b foram preservadas exclusivamente no pacote pessoal do proprietário. Não são firmware universal nem devem ser publicadas sem auditoria de segredos/direitos. A presença de vbmeta no ZIP não implica que desativar verificação seja seguro.</p></div>
+</section>
+<section id="verificacao" class="section section-tight"><div class="section-head"><div><span class="kicker">02 / INTEGRIDADE</span><h2>Verificar ZIP antes de usar</h2><p>Escolha o ZIP obtido do proprietário ou da área privada. O navegador calcula SHA-256 localmente; não há upload.</p></div></div>
+<div class="panel checker"><input type="file" id="file" accept=".zip,application/zip" aria-label="Arquivo zip de recuperação">
+<button id="check" type="button" class="primary small">Calcular SHA-256</button><output id="result" aria-live="polite">Nenhum arquivo selecionado.</output>
+<p class="hint">Para o backup completo original (21 partições), consulte o verificador offline <a class="text-link" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/tools/backup_audit.py">backup_audit.py ↗</a>. Não publique hashes de partições privadas.</p>
+</div></section>
+<section id="brick" class="section section-tight"><div class="section-head"><div><span class="kicker">03 / RESTAURAÇÃO</span><h2>Escolha o estado do aparelho</h2><p>Não existe restauração automática pelo Pages. Um dispositivo em bootloop exige acesso de baixo nível verificado.</p></div></div>
+<div class="recovery-grid">
+<article class="panel"><span class="scenario green">CENÁRIO A</span><h3>Android inicia com ADB</h3><p>Diagnóstico do slot, comparação SHA do boot e possível restauração da imagem original da <strong>mesma unidade</strong>, se houver permissões. Não reiniciar após falha de escrita não verificada.</p><a class="text-link" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/docs/RECOVERY.md">Guia de recuperação →</a></article>
+<article class="panel"><span class="scenario orange">CENÁRIO B</span><h3>Tela Fastboot / USB</h3><p>Conferir reconhecimento com ferramentas oficiais e permissões do bootloader. A unidade estudada mostrou tela de cabo, mas não houve comunicação USB comprovada. <strong>Não presumir que flash é permitido.</strong></p><a class="text-link" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/docs/USB-BOOT-AND-FEL.md">Fastboot/FEL →</a></article>
+<article class="panel"><span class="scenario red">CENÁRIO C</span><h3>Bootloop / sem ADB</h3><p>Backups só ajudam se houver FEL, fastboot ou firmware OEM compatível e método de gravação verificado. A estrutura update.img de outros H713 pode apagar várias partições. Pode ser necessário suporte técnico.</p><a class="text-link" href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/docs/TROUBLESHOOTING.md">Diagnóstico →</a></article>
+</div>
+</section>
+<section class="section section-tight"><div class="cta-bottom"><div><span class="kicker">IMPORTANTE</span><h3>Guarde o backup privado separadamente.</h3><p>GitHub Pages não substitui uma cópia offline. Reserve duas mídias diferentes e confira hashes.</p></div><a class="primary" href="index.html">Voltar ao laboratório →</a></div></section>
+</main>
+<footer><div class="shell foot"><span><b>MAIZON</b> Projector Research Lab</span><span>Dados sensíveis não hospedados • Pesquisa independente</span><a href="https://github.com/maizon/Magcubic-HY310X-and-H713-H723-Root-/blob/main/SECURITY.md">Segurança ↗</a></div></footer>
+</body></html>

@@ -1,0 +1,22 @@
+.recovery-intro{padding:83px 0 32px;background:radial-gradient(ellipse at 92% 28%,#2ec3d017,transparent 65%)}
+.recovery-intro h1{font-size:clamp(2.8rem,6.4vw,5.6rem);margin:24px 0;letter-spacing:-.06em}
+.recovery-intro .lede{max-width:880px}
+.section-tight{padding-top:65px}.pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.chip{border:1px solid var(--edge);padding:8px 13px;border-radius:99px;font-size:.76rem;font-weight:700;color:var(--muted);background:var(--surface)}
+.chip.good{color:var(--mint);border-color:#57e4ad77}.chip.caution{color:var(--warn);border-color:#facc7577}
+.package{margin-top:18px}.package p{color:var(--muted);font-size:.88rem;line-height:1.75;margin:12px 0 20px}
+.packet-lines{background:var(--surface2);border:1px solid var(--edge);border-radius:12px;padding:4px 19px}
+.packet-lines>div{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--edge);font-size:.82rem}
+.packet-lines>div:last-child{border:0}.packet-lines span{color:var(--muted)}
+.packet-lines code{font-family:ui-monospace,Consolas,monospace;text-align:right;font-size:.77rem}
+.break{overflow-wrap:anywhere;max-width:70%}.yellow{color:var(--warn)}
+.buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.buttons .primary,.buttons .secondary{padding:11px 14px;font-size:.8rem}
+.recovery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.recovery-grid h3{margin:16px 0 10px}.recovery-grid p{font-size:.85rem;color:var(--muted)}
+.scenario{font-size:.67rem;letter-spacing:.08em;font-weight:800}
+.scenario.green{color:var(--mint)}.scenario.orange{color:var(--warn)}.scenario.red{color:#ff8484}
+.checker{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.checker input{max-width:100%;padding:10px;border:1px dashed var(--edge);border-radius:10px;font-size:.82rem}
+.checker output{min-width:0;flex:1;overflow-wrap:anywhere;font-size:.78rem;color:var(--muted)}
+.checker .hint{width:100%;margin:0}
+@media(max-width:850px){.recovery-grid{grid-template-columns:1fr}.packet-lines>div{flex-direction:column;gap:4px}.packet-lines code{text-align:left}.break{max-width:100%}}
