@@ -21,7 +21,7 @@ if ([IO.Path]::GetFileName($path) -ne 'HY310X_H713_BOOT_Recovery_20251013.zip') 
 if ((Get-Item -LiteralPath $path).Length -ne 47074287) { throw 'Tamanho do ZIP inesperado.' }
 $hash=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
 if($hash -ne $expected){throw "SHA256 incorreto: $hash"}
-Add-Type -AssemblyName System.IO.Compression
+try { Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop } catch { Add-Type -AssemblyName System.IO.Compression -ErrorAction Stop }
 $zip=[System.IO.Compression.ZipFile]::OpenRead($path)
 try {
   $images=@($zip.Entries | Where-Object { $_.FullName -like '*.img' })

@@ -36,3 +36,13 @@ O hash deve ser `04a7f6be27b9b80e93f572aaeca2b4ceca538cd63b893f6fd5d27271a9c6036
 Backup por si só não garante recuperação de bootloop. É indispensável uma interface FEL, fastboot ou mecanismo OEM comprovadamente compatível. Não tente usar o ZIP como `update.img`, não desative AVB por tentativa nem grave bootloader de outro aparelho. Consulte [RECOVERY.md](RECOVERY.md).
 
 **Aviso:** GitHub Pages não é um mecanismo de recuperação; ele serve apenas para hospedagem e documentação.
+
+### Opção de publicação assistida no Windows (rascunho privado até publicação manual)
+
+O repositório inclui o script [tools/publish-recovery.ps1](../tools/publish-recovery.ps1). Baixe o ZIP reduzido deste chat, instale/autentique o [GitHub CLI](https://cli.github.com/) e, a partir da pasta do repositório no PC, execute:
+
+```powershell
+.\tools\publish-recovery.ps1 -ZipPath "$HOME\Downloads\HY310X_H713_BOOT_Recovery_20251013.zip"
+```
+
+O script confere tamanho, hash e lista de 12 imagens e cria uma **Release rascunho**, sem publicação automática. Somente publique o Release após revisão de direitos de redistribuição e do risco de identificação do aparelho. Quando houver Release público com o nome e tamanho esperados, a página de recuperação detectará e exibirá seu botão de download.
